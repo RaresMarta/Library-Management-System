@@ -1,0 +1,68 @@
+﻿<Window x:Class="LibrarySystem.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Library Manager" Height="500" Width="1200">
+  
+  <Grid Margin="10">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto"/>
+      <ColumnDefinition Width="*"/> 
+    </Grid.ColumnDefinitions>
+
+    <!-- Side Bar Buttons -->
+    <StackPanel Grid.Column="0" Margin="0,0,10,0" VerticalAlignment="Top">
+      <Button x:Name="AddBookBtn"           Content="Add Book"             Margin="0,0,0,5" Width="120"/>
+      <Button x:Name="DeleteBookBtn"        Content="Delete Book"          Margin="0,0,0,15" Width="120"/>
+      <Button x:Name="AddMemberBtn"         Content="Add Member"           Margin="0,0,0,5" Width="120"/>
+      <Button x:Name="LoanBookBtn"          Content="Loan Book"            Margin="0,20,0,5" Width="120"/>
+      <Button x:Name="ReturnBookBtn"        Content="Return Book"          Margin="0,0,0,5" Width="120"/>
+      <Button x:Name="RenewLoanBtn"         Content="Renew Loan"           Margin="0,0,0,5" Width="120"/>
+      <Button x:Name="ShowMembersBtn"       Content="View Members"         Margin="0,20,0,5" Width="120"/>
+      <Button x:Name="ShowAnalyticsBtn"     Content="View Analytics"       Margin="0,0,0,5" Width="120"/>
+    </StackPanel>
+    
+    <Grid Grid.Column="1">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+
+      <!-- Top Filters -->
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+        <TextBox x:Name="TitleFilterBox" Width="200" Margin="0,0,5,0"/>
+        <Button x:Name="SearchBtn" Content="Search" Width="75" Margin="0,0,15,0"/>
+        <TextBlock Text="Author:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <ComboBox x:Name="AuthorFilterCombo" Width="150"/>
+      </StackPanel>
+
+      <!-- Book list + Loan history -->
+      <Grid Grid.Row="1">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Book List -->
+        <DataGrid x:Name="BooksGrid" Grid.Column="0"
+                  Width="400"
+                  AutoGenerateColumns="True"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  Margin="0,0,10,0"
+                  HorizontalAlignment="Left">
+        </DataGrid>
+
+        <!-- Loan History -->
+        <StackPanel Grid.Column="1">
+          <TextBlock Text="Loan history for selected book"
+                     Margin="0,0,0,5"/>
+          <DataGrid x:Name="LoanHistoryGrid"
+                    Width="Auto"
+                    AutoGenerateColumns="True"
+                    IsReadOnly="True"
+                    HorizontalAlignment="Left"/>
+        </StackPanel>
+      </Grid>
+    </Grid>
+  </Grid>
+</Window>

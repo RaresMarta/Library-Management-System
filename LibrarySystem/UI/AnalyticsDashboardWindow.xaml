@@ -1,0 +1,46 @@
+﻿<Window x:Class="LibrarySystem.UI.AnalyticsDashboardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:LibrarySystem.Domain"
+        Title="Analytics Dashboard"
+        Height="450"
+        Width="800"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Genre Distribution -->
+        <GroupBox Header="Genre Distribution"
+                  Grid.Row="0"
+                  Margin="0,0,0,10">
+            <DataGrid x:Name="GenreGrid"
+                      AutoGenerateColumns="True"
+                      IsReadOnly="True"
+                      Height="150"/>
+        </GroupBox>
+
+        <!-- Loan Status Totals -->
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,10">
+            <TextBlock Text="Active Loans: "/>
+            <TextBlock x:Name="ActiveLoansText" Margin="0,0,20,0"/>
+            <TextBlock Text="Overdue Loans: "/>
+            <TextBlock x:Name="OverdueLoansText"/>
+        </StackPanel>
+
+        <!-- Top Borrowed Books -->
+        <GroupBox Header="Top 5 Borrowed Books"
+                  Grid.Row="2"
+                  Margin="0,0,0,10">
+            <ListBox x:Name="TopBooksList"
+                     DisplayMemberPath="TitleAndCount"/>
+        </GroupBox>
+    </Grid>
+</Window>

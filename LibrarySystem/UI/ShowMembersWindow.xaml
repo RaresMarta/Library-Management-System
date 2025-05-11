@@ -1,0 +1,30 @@
+﻿<Window x:Class="LibrarySystem.UI.ShowMembersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="400" Width="1000"
+        WindowStartupLocation="CenterOwner" ResizeMode="CanResize">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Left: all members -->
+        <GroupBox Header="Members" Grid.Column="0" Margin="0,0,10,0">
+            <DataGrid x:Name="MembersGrid"
+                      Width="Auto"
+                      AutoGenerateColumns="True"
+                      IsReadOnly="True"
+                      SelectionMode="Single"
+                      SelectionChanged="MembersGrid_SelectionChanged"/>
+        </GroupBox>
+
+        <!-- Right: loans for selected member -->
+        <GroupBox Header="Loans for selected member" Grid.Column="1">
+            <DataGrid x:Name="MemberLoansGrid"
+                      Width="Auto"
+                      AutoGenerateColumns="True"
+                      IsReadOnly="True"/>
+        </GroupBox>
+    </Grid>
+</Window>

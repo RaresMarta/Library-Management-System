@@ -1,0 +1,20 @@
+﻿<Window x:Class="LibrarySystem.UI.LoanBookWindow"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        Title="Loan Book" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <StackPanel Margin="10" Width="300">
+        <TextBlock Text="Book ID" />
+        <TextBox x:Name="BookIdBox" Margin="0,2" />
+        
+        <TextBlock Text="Member ID" />
+        <TextBox x:Name="MemberIdBox" Margin="0,2" />
+
+        <TextBlock Text="Due Date" Margin="0,8,0,0" />
+        <DatePicker x:Name="DueDatePicker" SelectedDate="{x:Static sys:DateTime.Today}" xmlns:sys="clr-namespace:System;assembly=mscorlib"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,12,0,0">
+            <Button Content="OK" Width="75" Margin="0,0,5,0" Click="Ok_Click"/>
+            <Button Content="Cancel" Width="75" Click="Cancel_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
