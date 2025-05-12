@@ -17,7 +17,7 @@ A WPF application for managing books, members, and loan transactions with a clea
 1. **Clone the repo**:
 
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/RaresMarta/Library-Management-System.git
    cd LibrarySystem
    ```
 
